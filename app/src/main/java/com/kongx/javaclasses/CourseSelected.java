@@ -18,7 +18,7 @@ public class CourseSelected {
     private int startWeek;
     private int endWeek;
     private int color;
-    public CourseSelected(){};
+    public CourseSelected(){}
     public CourseSelected(CourseSelected courseSelected){
         this.courseSelectNum = courseSelected.courseSelectNum;
         this.name = courseSelected.name;
@@ -30,6 +30,7 @@ public class CourseSelected {
         this.endTime = courseSelected.endTime;
         this.startWeek = courseSelected.startWeek;
         this.endWeek = courseSelected.endWeek;
+        this.color = courseSelected.color;
     }
 
     public String getCourseSelectNum() {

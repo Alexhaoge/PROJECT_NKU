@@ -1,15 +1,11 @@
 package com.kongx.nkuassistant;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +15,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -27,7 +28,7 @@ public class CurriculumFragment extends Fragment implements SwipeRefreshLayout.O
     //    private int numberOfPages;
     private SwipeRefreshLayout mRefresh;
     private ListView mlistView;
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     private TextView mNoCurrirulumView;
     private String stringToPost;
 
@@ -46,7 +47,7 @@ public class CurriculumFragment extends Fragment implements SwipeRefreshLayout.O
         mRefresh = (SwipeRefreshLayout) myView.findViewById(R.id.curriculum_refresh);
         mRefresh.setOnRefreshListener(CurriculumFragment.this);
         mNoCurrirulumView.setVisibility(View.GONE);
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         mlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -61,7 +62,7 @@ public class CurriculumFragment extends Fragment implements SwipeRefreshLayout.O
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         if (Information.selectedCourseCount == -1) {
             onRefresh();
         } else if (Information.selectedCourseCount == 0) {

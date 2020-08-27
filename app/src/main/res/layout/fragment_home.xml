@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.kongx.nkuassistant.HomeFragment">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/home_refresh">
@@ -43,7 +43,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/ic_menu_schedule"
+                        app:srcCompat="@drawable/ic_menu_schedule"
                         android:layout_marginTop="10dp"
                         android:paddingTop="10dp"
                         android:paddingStart="20dp"
@@ -171,7 +171,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/ic_menu_exam"
+                        app:srcCompat="@drawable/ic_menu_exam"
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         android:paddingTop="10dp"
@@ -244,7 +244,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/ic_menu_score"
+                        app:srcCompat="@drawable/ic_menu_score"
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         android:paddingTop="10dp"
@@ -305,7 +305,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/ic_menu_select"
+                        app:srcCompat="@drawable/ic_menu_select"
                         android:layout_marginTop="10dp"
                         android:background="@color/white"
                         android:paddingTop="10dp"
@@ -369,7 +369,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:src="@drawable/ic_menu_bus"
+                        app:srcCompat="@drawable/ic_menu_bus"
                         android:paddingEnd="20dp"
                         android:paddingStart="20dp"
                         android:scaleType="centerCrop"
@@ -516,7 +516,7 @@
         </LinearLayout>
     </ScrollView>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
 </FrameLayout>

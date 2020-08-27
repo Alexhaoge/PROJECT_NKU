@@ -1,23 +1,20 @@
 package com.kongx.nkuassistant;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TabHost;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class DeveloperFragment extends Fragment {
 
@@ -84,7 +81,7 @@ public class DeveloperFragment extends Fragment {
         public ScreenSlidePagerAdapter(FragmentManager supportFragmentManager) {
             super(supportFragmentManager);
         }        @Override
-        public android.support.v4.app.Fragment getItem(int position) {
+        public androidx.fragment.app.Fragment getItem(int position) {
             if(position==1) return new PageAboutFoxFragment();
             return new PageAboutKongxFragment();
         }

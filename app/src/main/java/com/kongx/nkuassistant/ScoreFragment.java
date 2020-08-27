@@ -1,12 +1,8 @@
 package com.kongx.nkuassistant;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.kongx.javaclasses.CourseStudied;
 
@@ -37,7 +38,7 @@ public class ScoreFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     private ListView mScoreList;
     private TextView mCreditsAll;
     private TextView mAverageAll;
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     private int showAverageMethod = 0;
     @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class ScoreFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         if(Information.studiedCourses == null){
             onRefresh();
         }else onConnectorComplete(Connector.RequestType.SCORE,true);

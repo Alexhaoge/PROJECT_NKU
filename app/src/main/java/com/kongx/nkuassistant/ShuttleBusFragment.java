@@ -1,15 +1,7 @@
 package com.kongx.nkuassistant;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +10,16 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
+import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
 
 
 public class  ShuttleBusFragment extends Fragment {
@@ -83,7 +85,7 @@ public class  ShuttleBusFragment extends Fragment {
         return view;
     }
 
-    public static class ShuttleBusPage1 extends android.support.v4.app.Fragment{
+    public static class ShuttleBusPage1 extends androidx.fragment.app.Fragment {
         public ShuttleBusPage1(){}
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -147,7 +149,7 @@ public class  ShuttleBusFragment extends Fragment {
         }
     }
 
-    public static class ShuttleBusPage2 extends android.support.v4.app.Fragment{
+    public static class ShuttleBusPage2 extends androidx.fragment.app.Fragment {
         public ShuttleBusPage2(){}
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -213,7 +215,7 @@ public class  ShuttleBusFragment extends Fragment {
         public ScreenSlidePagerAdapter(FragmentManager supportFragmentManager) {
             super(supportFragmentManager);
         }        @Override
-        public android.support.v4.app.Fragment getItem(int position) {
+        public androidx.fragment.app.Fragment getItem(int position) {
             if(position==1) return new ShuttleBusPage2();
             return new ShuttleBusPage1();
         }

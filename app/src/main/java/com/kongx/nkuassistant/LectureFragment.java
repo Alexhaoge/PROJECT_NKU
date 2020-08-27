@@ -1,10 +1,7 @@
 package com.kongx.nkuassistant;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.kongx.javaclasses.Lecture;
 
@@ -22,7 +23,7 @@ import java.util.Calendar;
 public class LectureFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, Connector.Callback{
     private SwipeRefreshLayout mRefresh;
     private ListView mLectureList;
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     private MyAdapter adapter;
     private int todayLectureID;
     @Override
@@ -45,7 +46,7 @@ public class LectureFragment extends Fragment implements SwipeRefreshLayout.OnRe
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         if(Information.lectures == null){
             onRefresh();
         }else {

@@ -1,6 +1,5 @@
 package com.kongx.nkuassistant;
 
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,20 +10,23 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.content.FileProvider;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.FileProvider;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.io.File;
 
@@ -53,13 +55,13 @@ public class IndexActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         homeFragment = new HomeFragment();
         fragmentTransaction.add(R.id.fragment_container, homeFragment, "HomeFragment");
         fragmentTransaction.addToBackStack(null);
@@ -141,7 +143,7 @@ public class IndexActivity extends AppCompatActivity
                                         public void updateProgress(Long current, Long total) {
                                             progressDialog.setMax(total.intValue()/1000);
                                             progressDialog.setProgress(current.intValue()/1000);
-                                            if(current == total) progressDialog.dismiss();
+                                            if(current.equals(total)) progressDialog.dismiss();
                                         }
                                     }).url(resultString[1]).saveAsFile()
                                             .get(new Connector.UpdateDownloadConnector(IndexActivity.this));
@@ -252,7 +254,7 @@ public class IndexActivity extends AppCompatActivity
             getFragmentManager().popBackStack();
         }
         navigationView.setCheckedItem(id);
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.hide(homeFragment);
         if (id == R.id.nav_home) {
             fragmentTransaction.show(homeFragment);

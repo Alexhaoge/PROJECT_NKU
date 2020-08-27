@@ -1,17 +1,18 @@
 package com.kongx.nkuassistant;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,7 +25,7 @@ public class ExamFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private TextView mNoText;
     private Pattern pattern;
     private Matcher matcher;
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +47,7 @@ public class ExamFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         if(Information.examCount == -1){
             onRefresh();
         }else {

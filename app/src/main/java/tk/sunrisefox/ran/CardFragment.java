@@ -1,6 +1,5 @@
 package tk.sunrisefox.ran;
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -9,14 +8,16 @@ import android.content.SharedPreferences;
 import android.nfc.NfcAdapter;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.fragment.app.Fragment;
 
 import com.kongx.nkuassistant.R;
 import com.kongx.nkuassistant.WelcomeActivity;
@@ -35,7 +36,7 @@ import java.util.regex.Pattern;
 
 public class CardFragment extends Fragment implements NFCCardReader.CardIDCallback {
 
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     public static int READER_FLAGS =
             NfcAdapter.FLAG_READER_NFC_A | NfcAdapter.FLAG_READER_SKIP_NDEF_CHECK;
     public NFCCardReader mCardReader;
@@ -227,7 +228,7 @@ public class CardFragment extends Fragment implements NFCCardReader.CardIDCallba
         View v = inflater.inflate(R.layout.fragment_card, container, false);
         mPersistLiner = (LinearLayout) v.findViewById(R.id.info);
         mTempLiner = (LinearLayout) v.findViewById(R.id.liner);
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         addTextView(mPersistLiner
                 , "如果您的手机具有NFC功能（并处于开启状态），您可以在此读取到您的门禁卡的信息。如果对本程序进行root授权，我们将尝试用您的手机模拟读到的门禁卡（在手机亮屏时，不需打开本界面即可作为门禁卡使用）。"
                 , null
@@ -242,7 +243,7 @@ public class CardFragment extends Fragment implements NFCCardReader.CardIDCallba
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         mTempLiner.removeAllViewsInLayout();
         enableReaderMode();
     }

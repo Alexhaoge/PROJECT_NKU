@@ -33,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="220dp"
                 android:layout_height="wrap_content">
 
@@ -45,7 +45,7 @@
                    android:ems="10"
                    android:id="@+id/editText_index_1"
                    android:layout_weight="1" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
@@ -58,7 +58,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="220dp"
                 android:layout_height="wrap_content">
 
@@ -70,7 +70,7 @@
                     android:ems="10"
                     android:id="@+id/editText_index_2"
                     android:layout_weight="1" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
@@ -83,7 +83,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="220dp"
                 android:layout_height="wrap_content">
                 <EditText
@@ -94,7 +94,7 @@
                     android:ems="10"
                     android:id="@+id/editText_index_3"
                     android:layout_weight="1" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
             <ImageView
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="20dp"
@@ -108,7 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.TextInputLayout
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
@@ -119,7 +119,7 @@
                     android:ems="10"
                     android:id="@+id/editText_index_4"
                     android:layout_weight="1" />
-            </android.support.design.widget.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout

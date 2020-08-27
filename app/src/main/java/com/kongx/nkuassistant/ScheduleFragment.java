@@ -1,14 +1,9 @@
 package com.kongx.nkuassistant;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -21,6 +16,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.kongx.javaclasses.CourseSelected;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class ScheduleFragment extends Fragment implements SwipeRefreshLayout.OnR
     private View myView = null;
     private ListViewNoScroll mListView;
     private RelativeLayout mReLayout;
-    private Activity m_activity;
+    private AppCompatActivity m_activity;
     private SwipeRefreshLayout mRefresh;
     private ArrayList<CourseSelected> tmpCurriculumList = null;
     private TextView mNoCurrirulumView;
@@ -61,7 +62,7 @@ public class ScheduleFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Override
     public void onResume() {
         super.onResume();
-        m_activity = getActivity();
+        m_activity = (AppCompatActivity) getActivity();
         if(Information.selectedCourseCount == -1){
             onRefresh();
         }else loadCurriculum();
