@@ -83,11 +83,11 @@ public class Connect extends AsyncTask<Void, Long, Void> {
     }
 
     public static void setConnectTimeout(int time) {
-        connectTimeout = (time < 0 ? 0 : time);
+        connectTimeout = (Math.max(time, 0));
     }
 
     public static void setReadTimeout(int time) {
-        readTimeout = (time < 0 ? 0 : time);
+        readTimeout = (Math.max(time, 0));
     }
 
     public static void setDefaultFollowRedirects(boolean followRedirects) {

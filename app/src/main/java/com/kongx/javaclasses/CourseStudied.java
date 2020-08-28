@@ -138,7 +138,7 @@ public class CourseStudied {
 
     private void calculateGPA(){
         gpas = new float[5];
-        //Standart GPA
+        //Standard GPA
         if(score >= 90) gpas[0] = 4.0f;
         else if(score >= 80)    gpas[0] = 3.0f;
         else if(score >= 70)    gpas[0] = 2.0f;

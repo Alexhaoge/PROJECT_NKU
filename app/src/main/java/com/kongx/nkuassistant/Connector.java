@@ -26,7 +26,7 @@ import tk.sunrisefox.httprequest.Response;
 
 public class Connector {
     final static String login_string_template = "username=%s&password=%s&encodedPassword=&session_locale=zh_CN";
-    ;
+
     final static String url_logout = "/eams/logout.action";
     final static String feedback_post_template = "appVersion=%s&userId=%s&topic=%s&content=%s&email=%s";
     private final static String currriculum_string_template = "ignoreHead=1&setting.kind=std&startWeek=&semester.id=%s&ids=%s";
@@ -49,11 +49,11 @@ public class Connector {
     private final static String api_feedback_post = "http://api.kongxiao0532.cn/feedback.php";
     private final static String api_statis_post = "http://api.kongxiao0532.cn/statis.php";
     private final static String statis_post_template = "appVersion=%s&id=%s";
-    static String WEB_URL = "http://eamis.nankai.edu.cn";
+    static String WEB_URL = "https://webvpn.nankai.edu.cn/http/77726476706e69737468656265737421f5f64c95347e6651700388a5d6502720dc08a5";
     static ArrayList<CourseSelected> tmpSelectedCourses;
     static int tmpStudiedCourseCount = -1;
     private static int curriculumColor = 0;
-    private static ArrayList<Lecture> tmpLectures = new ArrayList<Lecture>();
+    private static ArrayList<Lecture> tmpLectures = new ArrayList<>();
 
     private static long getTimeStamp(){ return System.currentTimeMillis();    }
 
@@ -611,32 +611,33 @@ public class Connector {
                                 tmpCourse = new CourseStudied(CourseStudied.DoubleCourseMark.MAJORCOURSE);
                                 tmpCourse.setSemester(text);
                                 break;
-                            case 1: break;
+                            case 1:
+                            case 3:
+                            case 5:
+                            case 7:
+                            case 9:
+                            case 11:
+                            case 13:
+                            case 15:
+                                break;
                             case 2:                         //get class ID
                                 tmpCourse.setClassId(text);
                                 break;
-                            case 3: break;
                             case 4:                         //get selection ID
                                 break;
-                            case 5: break;
                             case 6:                         //get course name
                                 tmpCourse.setName(text);
                                 break;
-                            case 7: break;
                             case 8:                         //get class type
                                 tmpCourse.setClassType(text);
                                 break;
-                            case 9: break;
                             case 10:                         //get credits
                                 tmpCourse.setCredit(text);
                                 break;
-                            case 11: break;
                             case 12:                         //get grade
                                 break;
-                            case 13: break;
                             case 14:                         //get score
                                 tmpCourse.setScore(text);
-                            case 15: break;
                             case 16:                            //get so-called gpa
                                 tmpScore.add(tmpCourse);
                                 singleCourseTextCount = 0;
@@ -787,7 +788,7 @@ public class Connector {
                             tmpLecture.setDateTime(text);
                             break;
                         case 5:
-                            tmpLecture.setLocation(text.substring(3, text.length()));
+                            tmpLecture.setLocation(text.substring(3));
                             break;
                         case 6:
                             tmpLecture.setLecturer(text);

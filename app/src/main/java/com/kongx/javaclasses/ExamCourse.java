@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -37,7 +38,7 @@ public class ExamCourse {
         Pattern pattern = Pattern.compile("(\\d\\d\\d\\d-\\d\\d-\\d\\d)");
         Matcher matcher = pattern.matcher(input);
         if (matcher.find()) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
             String dateInString = matcher.group(1);
             try {
                 date = sdf.parse(dateInString);
@@ -48,7 +49,7 @@ public class ExamCourse {
     }
 
     public String getDateString() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         return sdf.format(date);
     }
 
@@ -96,7 +97,7 @@ public class ExamCourse {
 
         @Override
         public int compare(ExamCourse e1, ExamCourse e2) {
-            int month1 = 0, month2 = 0, day1 = 0, day2 = 0, hour1 = 0, hour2 = 0;
+            int month1, month2, day1, day2, hour1 = 0, hour2 = 0;
             Calendar cal = Calendar.getInstance();
             cal.setTime(e1.getDate());
             month1 = cal.get(Calendar.MONTH);

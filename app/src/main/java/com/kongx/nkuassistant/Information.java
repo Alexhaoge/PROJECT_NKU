@@ -20,7 +20,7 @@ public class Information {
     static final String UPDATE_URL = "http://kongxiao0532.cn/projectnku/update.html";
     static final String NOTICE_URL = "http://kongxiao0532.cn/projectnku/notice.html";
     //related to Feedback
-    static final String FEEDBACK_EMAIL = "mailto:kongxiao0532@163.com";
+    static final String FEEDBACK_EMAIL = "mailto:alex_haoge@126.com";
     static final String FEEDBACK_SUBJECT = "[Project NKU] 用户意见反馈";
     static final String PREFS_NAME = "PreferenceFile";
     static final String COURSE_PREFS_NAME = "CourseFile_new";
